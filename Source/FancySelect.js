@@ -36,6 +36,10 @@ var FancySelect = new Class({
 	initialize: function(element, options) {
 	
 		this.setOptions(options);
+    if(this.options.showImages && this.options.showSprites) {
+      console.log('Error: showImages and showSprites options are mutually exclusive.');
+      return null;
+    }
 		/*if (!Fx.Slide)*/ this.options.animateSlide = false; // Need review
 		this.element = document.id(element);
 		this.element.store('fancyselect_object', this);
