@@ -23,7 +23,7 @@ var FancySelect = new Class({
 		legacyEvents: false,
 		showText: true,
 		showImages: true,
-    showSprites: false,
+		showSprites: false,
 		className: 'fancy-select',
 		offset: { x: 0, y: 0 },
 		autoHide: false,
@@ -104,10 +104,10 @@ var FancySelect = new Class({
 			'src': this.selectOptions[value].image,
 			'alt': this.selectOptions[value].alt
 		});
-    if (this.options.showSprites) this.div.getElement('img.sprite').setProperties({
-      'src': this.selectOptions[value].image,
-      'class': 'sprite ' + this.selectOptions[value].sprite
-    });
+		if (this.options.showSprites) this.div.getElement('img.sprite').setProperties({
+			'src': this.selectOptions[value].image,
+			'class': 'sprite ' + this.selectOptions[value].sprite
+		});
 		if (this.ul) {
 			this.ul.getElements('li').each(function(li) {
 				if (li.getProperty('data-value') == value) li.addClass('selected');
@@ -167,10 +167,10 @@ var FancySelect = new Class({
 				this.selectOptions[value].image = option.getProperty('data-image');
 				this.selectOptions[value].alt = option.getProperty('data-alt');
 			}
-      if (o.showSprites) {
-        this.selectOptions[value].image = 'x.gif';
-        this.selectOptions[value].sprite = option.getProperty('data-sprite');
-      }
+			if (o.showSprites) {
+				this.selectOptions[value].image = 'x.gif';
+				this.selectOptions[value].sprite = option.getProperty('data-sprite');
+			}
 		}.bind(this));
 		
 		// Create <li> elements
@@ -179,7 +179,7 @@ var FancySelect = new Class({
 			var li = new Element('li', { 'data-value': value });
 			if (option.disabled) li.addClass('disabled');
 			if (o.showImages && option.image) li.adopt(new Element('img.image', { 'src': option.image, 'alt': option.alt }));
-      if (o.showSprites && option.image && option.sprite) li.adopt(new Element('img.sprite', { 'src': option.image, 'class': 'sprite ' + option.sprite }));
+			if (o.showSprites && option.image && option.sprite) li.adopt(new Element('img.sprite', { 'src': option.image, 'class': 'sprite ' + option.sprite }));
 			if (o.showText && option.text) li.adopt(new Element('span.text', { 'text': option.text }));
 			li.addEvent('click', function() { 
 				if (li.hasClass('disabled')) return;
