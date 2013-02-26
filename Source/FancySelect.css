@@ -99,6 +99,11 @@ ul.fancy-select li.disabled {
 	height: 32px;
 }
 
+.fancy-select .sprite {
+	display: block;
+	float: left;
+}
+
 .fancy-select .text {
 	display: block;
 	float: left;
