@@ -100,7 +100,7 @@ var FancySelect = new Class({
 			'src': this.selectOptions[value].image,
 			'alt': this.selectOptions[value].alt
 		});
-    if (this.options.showSprites) this.div.getElement('img.image').setProperties({
+    if (this.options.showSprites) this.div.getElement('img.sprite').setProperties({
       'src': this.selectOptions[value].image,
       'class': 'sprite ' + this.selectOptions[value].sprite
     });
@@ -175,7 +175,7 @@ var FancySelect = new Class({
 			var li = new Element('li', { 'data-value': value });
 			if (option.disabled) li.addClass('disabled');
 			if (o.showImages && option.image) li.adopt(new Element('img.image', { 'src': option.image, 'alt': option.alt }));
-      if (o.showSprites && option.image && option.sprite) li.adopt(new Element('img.image', { 'src': option.image, 'class': 'sprite ' + option.sprite }));
+      if (o.showSprites && option.image && option.sprite) li.adopt(new Element('img.sprite', { 'src': option.image, 'class': 'sprite ' + option.sprite }));
 			if (o.showText && option.text) li.adopt(new Element('span.text', { 'text': option.text }));
 			li.addEvent('click', function() { 
 				if (li.hasClass('disabled')) return;
@@ -192,7 +192,8 @@ var FancySelect = new Class({
 		
 		// Create <div> replacement for select
 		this.div = new Element('div').addClass(o.className);
-		if (o.showImages || o.showSprites) this.div.adopt(new Element('img.image'));
+		if (o.showImages) this.div.adopt(new Element('img.image'));
+		if (o.showSprites) this.div.adopt(new Element('img.sprite'));
 		if (o.showText) this.div.adopt(new Element('span.text'));
 		this.div.adopt(new Element('span.arrow'));
 		this.div.addEvent('click', function() { this.toggle(); }.bind(this));
